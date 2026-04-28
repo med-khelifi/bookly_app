@@ -7,7 +7,7 @@ class BookInfoListTileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.17,
+      height: 110,
       child: AspectRatio(
         aspectRatio: 0.6666,
         child: ClipRRect(

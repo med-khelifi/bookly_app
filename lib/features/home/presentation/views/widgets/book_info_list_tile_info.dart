@@ -1,4 +1,5 @@
 import 'package:bookly/core/constants/app_styles.dart';
+import 'package:bookly/features/home/presentation/views/widgets/rating_detail.dart';
 import 'package:flutter/material.dart';
 
 class BookInfoListTileInfo extends StatelessWidget {
@@ -26,11 +27,7 @@ class BookInfoListTileInfo extends StatelessWidget {
           children: [
             Text("1999 \$", style: AppStyles.textStyleSemiBold20),
             Spacer(),
-            Icon(Icons.star, color: Colors.amber, size: 24.0),
-            SizedBox(width: 4.0),
-            Text("4.8", style: AppStyles.textStyleSemibold14),
-            SizedBox(width: 4.0),
-            Text("(200)", style: AppStyles.textStyleSemibold14),
+            RatingDetail(),
           ],
         ),
       ],
