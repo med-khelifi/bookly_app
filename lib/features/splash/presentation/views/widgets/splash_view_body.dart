@@ -36,12 +36,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHomeView(BuildContext context) {
-  Future.delayed(const Duration(seconds: 2), () {
-    if (context.mounted) {
-      context.go(AppRouter.homeView);
-    }
-  });
-}
+    Future.delayed(const Duration(seconds: 2), () {
+      if (context.mounted) {
+        context.go(AppRouter.homeView);
+      }
+    });
+  }
 
   @override
   void dispose() {

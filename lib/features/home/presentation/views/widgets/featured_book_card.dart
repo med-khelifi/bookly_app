@@ -23,4 +23,3 @@ class FeaturedBookCard extends StatelessWidget {
     );
   }
 }
-

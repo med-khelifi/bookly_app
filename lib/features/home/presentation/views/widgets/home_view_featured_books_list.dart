@@ -18,4 +18,3 @@ class HomeViewFeaturedBooksList extends StatelessWidget {
     );
   }
 }
-

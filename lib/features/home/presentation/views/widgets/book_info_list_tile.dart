@@ -20,7 +20,6 @@ class BookInfoListTile extends StatelessWidget {
           Expanded(child: BookInfoListTileInfo()),
         ],
       ),
-      
     );
   }
 }
