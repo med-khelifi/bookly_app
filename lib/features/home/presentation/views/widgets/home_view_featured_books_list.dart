@@ -1,3 +1,4 @@
+import 'package:bookly/core/widgets/cached_image_widgets.dart';
 import 'package:bookly/core/widgets/error_widget.dart';
 import 'package:bookly/features/home/presentation/bloc/featured_books/featured_book_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_book_card.dart';
@@ -28,7 +29,7 @@ class HomeViewFeaturedBooksList extends StatelessWidget {
         } else if (state is FeaturedBookError) {
           return SizedBox(
             height: MediaQuery.sizeOf(context).height * 0.35,
-            child: Center(child: CustomErrorWidget(errorMessage: state.errorMessage)),
+            child: Center(child: AppCachedImage(imageUrl: state.errorMessage)),
           );
         } else {
           return const Center(child: CircularProgressIndicator());
