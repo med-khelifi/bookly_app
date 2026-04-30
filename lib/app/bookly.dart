@@ -1,5 +1,8 @@
 import 'package:bookly/core/constants/app_colors.dart';
+import 'package:bookly/core/di/get_it.dart';
 import 'package:bookly/core/router/app_router.dart';
+import 'package:bookly/features/home/data/repos/home_repo.dart';
+import 'package:bookly/features/home/data/repos/home_repo_data.dart';
 import 'package:bookly/features/home/presentation/bloc/featured_books/featured_book_cubit.dart';
 import 'package:bookly/features/home/presentation/bloc/newset_books/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +16,11 @@ class Bookly extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => FeaturedBookCubit()),
+        BlocProvider(
+          create: (context) =>
+              FeaturedBookCubit(homeRepo: getIt<HomeRepoData>())
+                ..fetchFeaturedBooks(),
+        ),
         BlocProvider(create: (context) => NewestBooksCubit()),
       ],
       child: MaterialApp.router(

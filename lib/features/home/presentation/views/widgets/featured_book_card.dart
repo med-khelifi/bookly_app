@@ -1,10 +1,13 @@
-import 'package:bookly/core/constants/app_assets.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class FeaturedBookCard extends StatelessWidget {
-  const FeaturedBookCard({super.key});
-
-  @override
+  const FeaturedBookCard({
+    super.key,
+    required this.imageUrl,
+  });
+  final String imageUrl;
+        @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.35,
@@ -13,8 +16,8 @@ class FeaturedBookCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
-              image: AssetImage(AppAssets.imagesTest),
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
               fit: BoxFit.cover,
             ),
           ),

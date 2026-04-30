@@ -11,7 +11,7 @@ class BookDetailSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        FeaturedBookCard(),
+        FeaturedBookCard(imageUrl: "https://books.google.com/books/content?id=ZtqzDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"),
         SizedBox(height: 40),
         Text('The Jungle Book', style: AppStyles.textStyleRegular30),
         SizedBox(height: 4),
