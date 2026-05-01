@@ -12,7 +12,7 @@ class BookInfoListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.bookDetailView);
+        GoRouter.of(context).push(AppRouter.bookDetailView, extra: book);
       },
       child: Row(
         children: [
