@@ -3,31 +3,39 @@ import 'package:bookly/features/home/presentation/views/widgets/rating_detail.da
 import 'package:flutter/material.dart';
 
 class BookInfoListTileInfo extends StatelessWidget {
-  const BookInfoListTileInfo({super.key});
-
+  const BookInfoListTileInfo({
+    super.key,
+    required this.title,
+    required this.author,
+    required this.price,
+    this.rating,
+    this.ratingCount,
+  });
+  final String title, author, price;
+  final String? rating, ratingCount;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          "The Psychology of Money",
+        Text(
+          title,
           style: AppStyles.textStyleSemiBold20,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 6.0),
         Text(
-          "Morgan Housel",
+          author,
           style: AppStyles.textStyleRegular14.copyWith(color: Colors.white54),
         ),
         const SizedBox(height: 6.0),
-        const Row(
+        Row(
           children: [
-            Text("1999 \$", style: AppStyles.textStyleSemiBold20),
-            Spacer(),
-            RatingDetail(),
+            Text("$price \$", style: AppStyles.textStyleSemiBold20),
+            const Spacer(),
+            RatingDetail(rating: rating, reviewsCount: ratingCount),
           ],
         ),
       ],

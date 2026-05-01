@@ -1,5 +1,4 @@
 import 'package:bookly/core/widgets/cached_image_widgets.dart';
-import 'package:bookly/core/widgets/error_widget.dart';
 import 'package:bookly/features/home/presentation/bloc/featured_books/featured_book_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_book_card.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class HomeViewFeaturedBooksList extends StatelessWidget {
               itemCount: books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => FeaturedBookCard(
-                imageUrl: books[index].volumeInfo.imageLinks!.thumbnail!,
+                imageUrl: books[index].volumeInfo.imageLinks?.thumbnail ?? '',
               ),
               separatorBuilder: (context, index) => const SizedBox(width: 10),
             ),

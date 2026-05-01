@@ -25,7 +25,9 @@ class SimilarBooksSection extends StatelessWidget {
           child: ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => const BookInfoListTileImage(),
+            itemBuilder: (context, index) => const BookInfoListTileImage(
+              imageUrl: 'https://picsum.photos/200/300',
+            ),
             separatorBuilder: (context, index) => const SizedBox(width: 10),
             itemCount: 10,
           ),

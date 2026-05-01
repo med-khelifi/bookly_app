@@ -31,15 +31,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 15)),
-              SliverPadding(
-                padding: EdgeInsetsGeometry.only(
-                  left: 15.0,
-                  right: 15.0,
-                  bottom: 16.0,
-                  top: 8.0,
-                ),
-                sliver: BestSellersBooksList(),
-              ),
+              BestSellersBooksList(),
             ],
           ),
           Positioned(

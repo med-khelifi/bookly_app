@@ -11,10 +11,11 @@ class HomeRepoData implements HomeRepo {
   HomeRepoData({required ApiClient apiClient}) : _apiClient = apiClient;
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBestSellingBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       final data = await _apiClient.get(
-        endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science',
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science',
       );
       List<BookModel> books = [];
       for (var element in data['items']) {
@@ -33,6 +34,26 @@ class HomeRepoData implements HomeRepo {
     try {
       final data = await _apiClient.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming',
+      );
+      List<BookModel> books = [];
+      for (var element in data['items']) {
+        books.add(BookModel.fromJson(element));
+      }
+      return right(books);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromEx(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> relentsBooks({
+    required String category,
+  }) async {
+    try {
+      final data = await _apiClient.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:$category',
       );
       List<BookModel> books = [];
       for (var element in data['items']) {
