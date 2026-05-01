@@ -1,8 +1,10 @@
+import 'package:bookly/core/router/app_router.dart';
 import 'package:bookly/core/widgets/cached_image_widgets.dart';
 import 'package:bookly/features/home/presentation/bloc/featured_books/featured_book_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewFeaturedBooksList extends StatelessWidget {
   const HomeViewFeaturedBooksList({super.key});
@@ -19,8 +21,13 @@ class HomeViewFeaturedBooksList extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemCount: books.length,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => FeaturedBookCard(
-                imageUrl: books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+              itemBuilder: (context, index) => GestureDetector(
+                onTap: () {
+                  context.push(AppRouter.bookDetailView, extra: books[index]);
+                },
+                child: FeaturedBookCard(
+                  imageUrl: books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+                ),
               ),
               separatorBuilder: (context, index) => const SizedBox(width: 10),
             ),
